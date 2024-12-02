@@ -1,0 +1,37 @@
+//Kommentar
+            Console.WriteLine("Hello World");
+            //Im speicher True => 0000 0001
+            //Im speicher Zahl 1 => 0000 0001
+
+            int nicoAlter = 30;
+
+            //Ganze Zahlen Typen: short, int, long
+            //						16	  32    64
+
+            Console.WriteLine("Das aktuelle Alter von Nico in Zeile 14, ist: " + nicoAlter);
+
+            nicoAlter = 101;
+
+            Console.WriteLine("Das aktuelle Alter von Nico in Zeile 18, ist: " + nicoAlter);
+
+            string vorname = "Nico";
+
+            vorname = "Jack";
+
+            Console.WriteLine("Mein vorname ist: " + vorname + "asdfasdf" + "asdfasdf" + nicoAlter);
+
+            string benutzerEingabe;
+
+            benutzerEingabe = "Eingabe";
+
+            string bankPin = "1234";
+
+            //Csharp wir haben folgende Datentypen fuer Zahlen mit Nachkommastelle, beispiel Zahl ist 12.3:
+            //float => 12.3f
+            //double => 12.3
+            //decimal => 12.3m
+
+            //GanzeZahlen, beispiel Zahl 12:
+            //short => 12s
+            //int => 12
+            //long => 12L

@@ -1,0 +1,318 @@
+1.
+Bekomme benutzer eingaben und gebe Sie in einem Satz aus bis der benutzer 
+den string "Quit" eingegeben hat.
+Bspw: 
+--Start--
+"Sie haben das Wort Spiel eingegeben."
+"Sie haben das Wort Sonne eingegeben."
+--Vorbei--
+(weil der benutzer Quit eingegeben hat.)
+
+Loesung:
+Console.WriteLine("--Start--");
+string eingabe = "";
+while(eingabe != "Quit")
+{
+    Console.WriteLine("Geben Sie ein Wort ein: ");
+    Console.WriteLine("Verwende das Befehl Quit, um dieses Programm zu beenden.");
+
+    eingabe = Console.ReadLine();
+    Console.WriteLine($"Sie haben das Wort {eingabe} eingegeben.");
+}
+Console.WriteLine("--Vorbei--");
+
+2.
+Generiere eine Zufallszahl zwischen 1 und 20 (inklusive), 
+dann baue eine Schleife ein wo der benutzer die Zufallszahl raten soll, 
+bis er es geschaft hat. Dann gebe die Anzahl an versuche aus.
+Bspw: Zufallszahl = 9
+Raten Sie die Zahl! 3
+Falsch, probieren Sie nochmal
+Raten Sie die Zahl! 17
+Falsch, probieren Sie nochmal
+Raten Sie die Zahl! 9
+Gewonnen!!! Sie haben 3 versuche gebraucht!
+
+(Challenge fuer diese letzte Aufgabe: gebe verschieden saetze an 
+abhaengig davon wie nah wir an die Zufallszahl sind. Bspw: 
+Distanz 1: "Ooooooh so knapp" Distanz 3-5: "Schon nah, probiere nochmal" 
+Distanz 6-10 "Nicht so gut..." Distanz groesser als 11 "Wow, sehr schlecht!").
+
+Loesung:
+Random rnd = new Random();
+int zufallszahl = rnd.Next(1, 21);
+//Testing Ausgabe:
+//Console.WriteLine("Aktueller Zufallszahl: " + zufallszahl);
+
+Console.WriteLine("Programm Start.");
+Console.WriteLine("Die Zufallszahl ist generiert.");
+
+int eingabeVersuch = -1;
+
+int anzahlVersuche = 0;
+
+do
+{
+    Console.WriteLine("Raten Sie welche Zahl wir haben...");
+    eingabeVersuch = Convert.ToInt32(Console.ReadLine());
+    anzahlVersuche++;
+    if(eingabeVersuch == zufallszahl)
+    {
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Falsch! Probieren Sie nochmal.");
+        int distanz = Math.Abs(eingabeVersuch - zufallszahl);
+        if(distanz==1)
+        {
+            Console.WriteLine("Ooooooh so knapp!");
+        }
+        else if (distanz<=5)
+        {
+            Console.WriteLine("Schon nah, probiere nochmal");
+        }
+        else if (distanz <= 10)
+        {
+            Console.WriteLine("Nicht so gut...");
+        }
+        else
+        {
+            Console.WriteLine("Wow, sehr schlecht!");
+        }
+    }
+} while (true);
+
+Console.WriteLine($"Gewonnen!!! Sie habe {anzahlVersuche} Versuche gebraucht.");
+Console.WriteLine("Programm Vorbei.");
+
+
+Loesung 2:
+
+Random random = new Random();
+            int zufallszahl = random.Next(1, 21); // Zufallszahl zwischen 1 und 20
+            int versuche = 0;
+            int benutzereingabe = 0;
+
+            Console.WriteLine("Willkommen beim Zahlenratenspiel!");
+            Console.WriteLine("Ich habe eine Zahl zwischen 1 und 20 gewählt. Kannst du sie erraten?");
+
+            do
+            {
+                Console.Write("Raten Sie die Zahl: ");
+                string eingabe = Console.ReadLine();
+
+                // Überprüfung der Eingabe
+                if (!int.TryParse(eingabe, out benutzereingabe) || benutzereingabe < 1 || benutzereingabe > 20)
+                {
+                    Console.WriteLine("Ungültige Eingabe. Bitte geben Sie eine Zahl zwischen 1 und 20 ein.");
+                    continue;
+                }
+
+                versuche++;
+
+                // Nähe zur Zufallszahl prüfen
+                int distanz = Math.Abs(benutzereingabe - zufallszahl);
+                if (benutzereingabe == zufallszahl)
+                {
+                    Console.WriteLine($"Gewonnen!!! Sie haben {versuche} Versuche gebraucht!");
+                    break;
+                }
+
+                // Feedback basierend auf der Distanz
+                if (distanz == 1)
+                {
+                    Console.WriteLine("Ooooooh so knapp!");
+                }
+                else if (distanz <= 5)
+                {
+                    Console.WriteLine("Schon nah, probiere nochmal!");
+                }
+                else if (distanz <= 10)
+                {
+                    Console.WriteLine("Nicht so gut...");
+                }
+                else
+                {
+                    Console.WriteLine("Wow, sehr schlecht!");
+                }
+            } while (true);
+
+For Uebungen
+
+1.
+Schreibe eine for schleife die 10 Zahlen von den benutzer bekommt und die Zahlen in eine Summe aufsummiert und dannach ausgibt. Bspw:
+eingaben: 1,5,3,2,6,8,5,4,200,9
+ausgabe: Die summe ist: 243
+
+Loesung:
+//int summe = 0;
+            //for(int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine("Geben Sie eine Zahl ein:");
+            //    summe += Convert.ToInt32(Console.ReadLine());
+            //}
+            //Console.WriteLine("Die summe ist: " + summe);
+
+            //int[] zahlen = new int[10];
+            //for(int i = 0;i < zahlen.Length; i++)
+            //{
+            //    Console.WriteLine("Geben Sie eine Zahl ein:");
+            //    zahlen[i] = Convert.ToInt32(Console.ReadLine());
+            //}
+            //Console.WriteLine("Die summe ist: " + zahlen.Sum());
+
+
+
+
+
+
+
+2.
+Berechne den Kubus von eine Zahl bis zu eine benutzerdefinierte obere grenze.(Kubus => hoch 3) Hinweis: Math.Pow(zaehler,3).
+Beispiel :
+Input number of terms : 5 (benutzer gibt die 5 ein)
+Expected Output :
+Number is : 1 and cube of the 1 is :1
+Number is : 2 and cube of the 2 is :8
+Number is : 3 and cube of the 3 is :27
+Number is : 4 and cube of the 4 is :64
+Number is : 5 and cube of the 5 is :125
+Die Zahl ist : 6 und der Kubus von 6 ist :256
+(Es ist hoch 3 fuer die Zahl 1 berechnet und ausgegeben worden, dann Zahl 2 usw.)
+
+Loesung:
+Console.WriteLine("Wir berechnen den Kubus bis zu eine Zahl die du auswaehlen darfst: ");
+            int max = Convert.ToInt32(Console.ReadLine());
+
+            for(int i = 1; i<=max; i++)
+            {
+                Console.WriteLine($"Zahl ist: {i} und der Kubus von {i} ist: {Math.Pow(i,3)}.");
+            }
+
+
+
+
+
+
+
+
+
+3.
+Schreibe einen Programm der eine aufsteigende menge von Sternchen auf die Konsole schreibt bis eine benutzer definierte grenze.
+(Hinweis: Schleife innerhalb einer anderen schleife.)
+Benutzer gibt menge 4 ein:
+
+*
+**
+***
+****
+
+Loesung:
+Console.WriteLine("We are creating a triangle. How big should it be? ");
+            int max = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 1; i <= max; i++)
+            {
+                for(int j = 0; j < i; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+
+
+
+
+
+
+
+
+
+
+
+Recap:
+
+/*
+1. Ausgaben
+Console.WriteLine();
+Console.Write();
+2. Eingaben
+Console.ReadLine();
+3. Typ Konvertierungen
+Convert.ToGewuenschterTyp();
+(int)15.4;
+Try.Parse(zuKonvertierenderWert, out speicherOrtKonvertierteZahl);
+4. Teilbarkeit Modulo
+zahl % 2 == 0 => zahl ist gerade wenn gleich 0, durch 2 teilbar.
+5. if(bedingung)
+{}
+else if(bedingung)
+{}
+else if(bedingung)
+{}
+else
+{}
+6.while(bedingung ist true){}
+do{}while(bedingung ist true);
+Unterschied => do while wird mind. einmal ausgefuehrt.
+7. for(int zahl=0;zahl<bedingung;zahl++){}
+8. Arrays
+int[] zahlen = {1,43,65,78,32,1267,87,43}
+int[] zahlen = new int[50]
+zahlen.Length => die anzahl an elemente bekommen koennen.
+WICHTIG bei index 0 anfangen.
+Auf werte zugreifen mit => variableName[index] = 23;
+9. Random
+Random rnd = new Random();
+rnd.Next(min,max-1);
+*/
+
+
+METHODEN
+
+//Wichtig: Es wird nur die Main methode ausgefuehrt.
+//Erst wenn wir eine Methode dort ausfuehren, dann verwenden wir diese Methoden.
+
+public static int Summe(int zahl1, int zahl2)
+{
+    return zahl1 + zahl2;
+}
+
+public static string Begruessung()
+{
+    return "Wilkommen!";
+}
+
+
+
+Uebung Methoden
+public static void ArrayFormattierung(string[] teilnehmer)
+        {
+            string ganzerArray = "{" + string.Join(", ", teilnehmer) + "}";
+            Console.WriteLine(ganzerArray);
+        }
+
+        public static void PrintArray(string[] teilnehmer)
+        {
+            Console.Write("{");
+            int totalNumber = teilnehmer.Length;
+            for (int i = 0; i < totalNumber; i++)
+            {
+                if (i == totalNumber - 1)
+                {
+                    Console.WriteLine(teilnehmer[i] + "}");
+                }
+                else
+                {
+                    Console.Write(teilnehmer[i] + ", ");
+                }
+            }
+        }
+
+
+Main zu Methode ArrayFormattierung und PrintArray:
+string[] teilnehmer = { "Li Su", "Tanja Schaefer", "Paria Taheri Bandari", "Amir Montazerin", "Frank Mayser", "Goekhan Oezcan", "Nicolas Arevalo Hoelscher" };
+            
+UebungenMethoden.ArrayFormattierung(teilnehmer);
+UebungenMethoden.PrintArray(teilnehmer);

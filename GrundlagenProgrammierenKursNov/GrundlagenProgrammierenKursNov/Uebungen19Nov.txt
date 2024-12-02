@@ -1,0 +1,274 @@
+Arithmetische Operatoren
+
+//++ operator nach variable => nach die Zeile erhoehen um 1
+//++ operator bevor variable => als aller erstes Zahl erhoehen
+int zahl = 5;
+//zahl += 43;
+//zahl = zahl + 43;
+//zahl += 1;
+
+Console.WriteLine(zahl--);//5
+Console.WriteLine(++zahl);//5
+Console.WriteLine(--zahl);//4
+Console.WriteLine(zahl++);//4
+Console.WriteLine(zahl++);//5
+Console.WriteLine(zahl);//6
+Console.WriteLine(zahl++);//6
+Console.WriteLine(--zahl);//6
+Console.WriteLine(zahl--);//6
+Console.WriteLine(zahl++);//5
+Console.WriteLine(++zahl);//7
+Console.WriteLine(zahl);//7
+
+Mathe Operationen Uebung:
+Console.WriteLine("Wir Berechnen Pythagoras' Theorem.");
+Console.WriteLine("Geben Sie mir einen a Wert ein:");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Geben Sie mir einen b Wert ein:");
+int b = Convert.ToInt32(Console.ReadLine());
+
+double c = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+Console.WriteLine($"Das ergebnis dieser berechnung mit " +
+$"a = {a} und b = {b} ist c = {c}.");
+
+If Bedinungen Beispiele:
+//Console.WriteLine("Please enter your Username:");
+//string username = Console.ReadLine();
+//Console.WriteLine("Please enter your Password:");
+//string password = Console.ReadLine();
+
+//bool admin = (username == "Admin1" && password == "pass12345");
+
+//if (admin)
+//{
+//    Console.WriteLine("Lade admin modus...");
+//}
+//else
+//{
+//    Console.WriteLine("Normaler benutzer erkannt, standard modus...");
+//}
+
+//Console.WriteLine("Beende Software.");
+
+//Console.WriteLine("Geben Sie bitte der aktueller Tag der Woche ein.");
+//Console.WriteLine("Schreiben Sie Wochenende, falls Samstag oder Sonntag.");
+//string tagDerWocher = Console.ReadLine();
+
+//if(tagDerWocher == "Montag")
+//{
+//    Console.WriteLine("Der start von etwas schoenes!");
+//}
+//else if(tagDerWocher == "Dienstag")
+//{
+//    Console.WriteLine("Der erste Tag schon geschaft, der rest ist jetzt Trivial.");
+//}
+//else if (tagDerWocher == "Mittwoch")
+//{
+//    Console.WriteLine("Die Sonne scheint, heute wird super sein!");
+//}
+//else if (tagDerWocher == "Donnerstag")
+//{
+//    Console.WriteLine("Fast die Woche geschafft. WEITER SOOOOOO!");
+//}
+//else if(tagDerWocher == "Freitag")
+//{
+//    Console.WriteLine("Letzter Tag der Woche, dannach Fiesta!");
+//}
+//else if(tagDerWocher == "Wochenende")
+//{
+//    Console.WriteLine("ZZZZZZZZZZZZZZZZZZZZZZZZZ");
+//}
+//else
+//{
+//    Console.WriteLine("Das habe ich leider nicht verstanden.");
+//}
+
+Ternary Operator
+//Ternary operator
+//var resultat = Bedingung ? Fall wahr : Fall falsch
+
+Console.WriteLine("Geben Sie an welcher Tag der Woche es momentan ist: ");
+string eingabe = Console.ReadLine();
+var resultat = eingabe=="Montag" ? "Start der Woche." : eingabe == "Dienstag" ? "Heute ist ein schoener Dienstag": eingabe == "Mittwoch" ? "Mitte der Woche" : "Spaeter in der Woche";
+
+Console.WriteLine(resultat);
+
+Zufallszahlen Generieren:
+Random zufallszahlenGenerator = new Random();
+
+//Mehrere optionen fuer die Methode Next()
+//1. Next() => Zahl zwischen 0 und < max Integer Wert
+//2. Next(max) => Zahl zwischen 0 und < max Generieren
+//3. Next(min, max) => Selbst min und < max defnieren
+int zufallszahl = zufallszahlenGenerator.Next(0,10);
+
+Switch Pattern Matching
+
+//Waehrungsrechner
+//Der benutzer hat Euro, und moechte zu eins dieser drei Waehrungen wechseln.
+//yen, usd, inr
+//Was ist der Wechselkurs fuer jede Waehrung von Euro-Yen?
+//usd: 1.06
+//yen: 162.65
+//inr: 89.40
+//Benutzer gibt betrag ein und gewuenschte waehrung.
+
+Console.WriteLine("Geben Sie die Gewuenschte Waehrung ein: ");
+string gewuenschteWaehrung = Console.ReadLine();
+
+Console.WriteLine("Geben Sie den Betrag den Sie wechseln moechten ein: ");
+decimal betrag = Convert.ToDecimal(Console.ReadLine());
+
+//Console.WriteLine($"Aktuelle Wert: Waehrung={gewuenschteWaehrung} Betrag={betrag}");
+
+decimal wechselkurs = gewuenschteWaehrung switch
+{
+    "yen" => 162.65m,
+    "usd" => 1.06m,
+    "inr" => 89.4m,
+    _ => throw new Exception("Ungueltige Waehrung eingabe.")
+};
+
+Console.WriteLine($"Sie bekommen {betrag*wechselkurs} {gewuenschteWaehrung} zurueck.");
+
+
+Uebung If statements:
+
+Console.WriteLine("Eingabe Studentennummer: ");
+string stdNum = Console.ReadLine();
+Console.WriteLine("Eingabe Vorname: ");
+string vorname = Console.ReadLine();
+Console.WriteLine("Eingabe noten fuer Physik, Chemie und Biologie: ");
+int physikNote = Convert.ToInt32(Console.ReadLine());
+if (physikNote < 0 || physikNote > 100)
+{
+    throw new Exception("Ungueltige Note Eingegeben");
+}
+int chemieNote = Convert.ToInt32(Console.ReadLine());
+if (chemieNote < 0 || chemieNote > 100)
+{
+    throw new Exception("Ungueltige Note Eingegeben");
+}
+int biologieNote = Convert.ToInt32(Console.ReadLine());
+if (biologieNote < 0 || biologieNote > 100)
+{
+    throw new Exception("Ungueltige Note Eingegeben");
+}
+
+Console.Clear();
+
+Console.WriteLine("Stdn No : 784");
+Console.WriteLine("Vorname von Student: " + vorname);
+Console.WriteLine("Note in Physik: " + physikNote);
+Console.WriteLine("Note in Chemie: " + chemieNote);
+Console.WriteLine("Note in Biologie: " + biologieNote);
+Console.WriteLine("Gesamt Punktzahl = " + (physikNote+chemieNote+biologieNote));
+int prozent = (physikNote + chemieNote + biologieNote) / 3;
+Console.WriteLine("Prozent = " + prozent);
+
+if(prozent >= 70)
+{
+    Console.WriteLine("Division = Erste");
+}
+else if(prozent >= 58)
+{
+    Console.WriteLine("Division = Zweite");
+}
+else if(prozent >= 48)
+{
+    Console.WriteLine("Bestanden.");
+}
+else if(prozent >=0)
+{
+    Console.WriteLine("Durchgefallen.");
+}
+else
+{
+    Console.WriteLine("Fehler bei die Erstellung deiner Division.");
+    Console.WriteLine("Telefonnieren Sie bitte mit den Kurs leiter.");
+}
+
+/*
+             * Schreibe einen Programm der studenten nummer, vorname, punktzahl in die Kurse physik, chemie, biologie einliesst
+             * Berechne gesamt punktzahl, prozent, ranking niveau.
+             * Alle punkte sind zwischen 0-100
+             * Ranking niveau regeln:
+             * 70+ erste division
+             * 58-70 zweite
+             * 48-57 bestanden
+             * 0-47 durchgefallen
+             * 
+             * Werte ausserhalb des Rankings sollten eine ausgabe "Falsche eingabe" erzeugen
+             * Danach programm beenden mit return;
+             * 
+             * Beispiel:
+             * 
+             * Test Daten :
+             * Eingabe Studentennummer: 784
+             * Eingabe vorname :James
+             * Eingabe noten fuer Physik, Chemie und Biologie: 70 80 90
+             * 
+             * Erwartete Ausgabe :
+             * Stdn No : 784
+             * Vorname von Student: James
+             * Note in Physik: 70
+             * Note in Chemie: 80
+             * Note in Biologie : 90
+             * Gesamt Punktzahl = 240
+             * Prozent = 80.00
+             * Division = Erste
+             */
+
+            Console.WriteLine("Eingabe Studentennummer: ");
+            string stdNum = Console.ReadLine();
+            Console.WriteLine("Eingabe Vorname: ");
+            string vorname = Console.ReadLine();
+            Console.WriteLine("Eingabe noten fuer Physik, Chemie und Biologie: ");
+            int physikNote = Convert.ToInt32(Console.ReadLine());
+            if (physikNote < 0 || physikNote > 100)
+            {
+                throw new Exception("Ungueltige Note Eingegeben");
+            }
+            int chemieNote = Convert.ToInt32(Console.ReadLine());
+            if (chemieNote < 0 || chemieNote > 100)
+            {
+                throw new Exception("Ungueltige Note Eingegeben");
+            }
+            int biologieNote = Convert.ToInt32(Console.ReadLine());
+            if (biologieNote < 0 || biologieNote > 100)
+            {
+                throw new Exception("Ungueltige Note Eingegeben");
+            }
+
+            Console.Clear();
+
+            Console.WriteLine("Stdn No : 784");
+            Console.WriteLine("Vorname von Student: " + vorname);
+            Console.WriteLine("Note in Physik: " + physikNote);
+            Console.WriteLine("Note in Chemie: " + chemieNote);
+            Console.WriteLine("Note in Biologie: " + biologieNote);
+            Console.WriteLine("Gesamt Punktzahl = " + (physikNote+chemieNote+biologieNote));
+            int prozent = (physikNote + chemieNote + biologieNote) / 3;
+            Console.WriteLine("Prozent = " + prozent);
+
+            if(prozent >= 70)
+            {
+                Console.WriteLine("Division = Erste");
+            }
+            else if(prozent >= 58)
+            {
+                Console.WriteLine("Division = Zweite");
+            }
+            else if(prozent >= 48)
+            {
+                Console.WriteLine("Bestanden.");
+            }
+            else if(prozent >=0)
+            {
+                Console.WriteLine("Durchgefallen.");
+            }
+            else
+            {
+                Console.WriteLine("Fehler bei die Erstellung deiner Division.");
+                Console.WriteLine("Telefonnieren Sie bitte mit den Kurs leiter.");
+            }

@@ -1,0 +1,14 @@
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\bin\Debug\net8.0\GrundlagenProgrammierenKursNov.exe
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\bin\Debug\net8.0\GrundlagenProgrammierenKursNov.deps.json
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\bin\Debug\net8.0\GrundlagenProgrammierenKursNov.runtimeconfig.json
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\bin\Debug\net8.0\GrundlagenProgrammierenKursNov.dll
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\bin\Debug\net8.0\GrundlagenProgrammierenKursNov.pdb
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\GrundlagenProgrammierenKursNov.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\GrundlagenProgrammierenKursNov.AssemblyInfoInputs.cache
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\GrundlagenProgrammierenKursNov.AssemblyInfo.cs
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\GrundlagenProgrammierenKursNov.csproj.CoreCompileInputs.cache
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\GrundlagenProgrammierenKursNov.dll
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\refint\GrundlagenProgrammierenKursNov.dll
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\GrundlagenProgrammierenKursNov.pdb
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\GrundlagenProgrammierenKursNov.genruntimeconfig.cache
+C:\Users\nicoa\source\repos\GrundlagenProgrammierenKursNov\GrundlagenProgrammierenKursNov\obj\Debug\net8.0\ref\GrundlagenProgrammierenKursNov.dll

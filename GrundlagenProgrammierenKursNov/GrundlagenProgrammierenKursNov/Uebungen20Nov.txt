@@ -1,0 +1,169 @@
+Console.WriteLine("Geben Sie Ihr 4 stelliges PIN ein:");
+string pinEingabe = Console.ReadLine();
+string echtesPIN = "6789";
+int versuche = 0;
+
+while (pinEingabe.Length!=4 || pinEingabe!=echtesPIN)
+{
+    versuche++;
+    if(versuche >= 3)
+    {
+        Console.WriteLine("Sie haben Ihr PIN zu oft falsch geschrieben.");
+        Console.WriteLine("Ihr Konto ist jetzt gesperrt.");
+        Console.WriteLine("Kontaktieren Sie bitte einen Mitarbeiter.");
+        Console.WriteLine("Hilfe nummer: 01764387435.");
+        return;
+    }
+    Console.WriteLine("Ungueltige Eingabe.");
+    Console.WriteLine("Probieren Sie bitte nochmal.");
+    pinEingabe = Console.ReadLine();
+}
+
+Uebung Waehrungsrechner 2.0
+//Waehrungsrechner
+            //Der benutzer hat Euro, und moechte zu eins dieser drei Waehrungen wechseln.
+            //yen, usd, inr
+            //Was ist der Wechselkurs fuer jede Waehrung von Euro-Yen?
+            //usd: 1.06
+            //yen: 162.65
+            //inr: 89.40
+            //Benutzer gibt betrag ein und gewuenschte waehrung.
+
+            //Aufgabe2: Die einzige gueltige gewuenschteWaehrung eingaben sind:
+            //inr, yen oder usd.
+            //Wenn keine gueltige Waehrung eingegeben wird,
+            //dann soll erneut danach gefragt werden.
+            //Extra Uebung: Nur betrag werte groesser 0 akzeptieren.
+            //Erneut nachfragen bei solche faelle.
+
+
+            Console.WriteLine("Geben Sie die Gewuenschte Waehrung ein: ");
+            string gewuenschteWaehrung = Console.ReadLine();
+
+            //true && true => true
+            //false && true => false
+            //true && false => false
+            //false && false => false
+
+            //true || true => true
+            //false || true => true
+            //true || false => true
+            //false || false => false
+            while (!gewuenschteWaehrung.Contains("inr") && !gewuenschteWaehrung.Contains("yen") && !gewuenschteWaehrung.Contains("usd"))
+            {
+                Console.WriteLine("Ungueltige Eingabe. Bitte nur yen, usd oder inr eingeben.");
+                gewuenschteWaehrung = Console.ReadLine();
+            }
+
+            Console.WriteLine("Geben Sie den Betrag den Sie wechseln moechten ein: ");
+            decimal betrag = Convert.ToDecimal(Console.ReadLine());
+
+            while(betrag <= 0)
+            {
+                Console.WriteLine("Bitte nur positiver Betrag groesser 0 eingeben.");
+                betrag = Convert.ToDecimal(Console.ReadLine());
+            }
+
+            decimal wechselkurs = gewuenschteWaehrung switch
+            {
+                "yen" => 162.65m,
+                "usd" => 1.06m,
+                "inr" => 89.4m,
+                _ => throw new Exception("Ungueltige Waehrung eingabe.")
+            };
+
+            Console.WriteLine($"Sie bekommen {betrag * wechselkurs} {gewuenschteWaehrung} zurueck.");
+
+
+            Schleife Uebung und Angriff beispiel
+            int summe = 0;
+            int zaehler = 1;
+            //Probiert erstmal mit while
+            //Danach bonus uebung, uebung zu do/while konvertieren
+            //Zahlen von 1 bis 10 inklusiv die 10 aufsummieren
+            //Dann mal 2 auf die Konsole ausgeben.
+
+            Random angriff = new Random();
+            int angriff1 = angriff.Next(0, 11);
+            int angriff2 = angriff.Next(0, 11);
+
+Uebung For Schleife
+//Alle Zahlen von 1 bis 10 aufsummieren
+//Dann mal 2 auf die Konsole ausgeben.
+//Challenge aufgabe: Der benutzer darf selber bestimmen wie oft die Schleife laufen soll.
+int summe = 0;
+Console.WriteLine("Bis wann sollen wir die Summe berechnen?");
+int max = Convert.ToInt32(Console.ReadLine());
+
+for (int counter = 1; counter <= max; counter++)
+{//1,2,3,4,5,6,7,8,9,10
+    //1,3,6,10,15,21,28,37,45,55
+    Console.WriteLine($"Aktuelle Summe ist: {summe}.\nWir addieren darauf die Zahl {counter}.\nDannach haben wir die Summe {summe + counter}.\n\n");
+    summe += counter;
+}
+
+Console.WriteLine($"End resultat: {summe*2}.");
+
+Beispiele Arrays:
+
+//Index                   0            1                2                  3                4                  5
+//string[] teilnehmer = {"Li Su", "Tanja Schaefer", "Goekhan Oezcan", "Amir Montazerin","Frank Mayser","Paria Taheri Bandari"};
+
+
+//for (int index = 0; index < teilnehmer.Length; index++)
+//{
+//    Console.WriteLine(teilnehmer[index]);
+//}
+
+//Produkt Preis Array        0         1     2        3      4
+decimal[] produktPreise = { 23.65m, 425.34m, 54m, 45.99m, 10.99m };
+
+for (int i = 0; i < produktPreise.Length; i++)
+{
+    produktPreise[i] = Math.Round(produktPreise[i] * 0.9m,2);
+    Console.WriteLine(produktPreise[i]);
+}
+
+Array Parkplatz
+string[] parkplaetze = new string[20];
+bool fertigMitParken = false;
+int parkPlatz = 0;
+
+while (!fertigMitParken)
+{
+    Console.WriteLine("Moechten Sie einen Auto Parken?");
+    Console.WriteLine("Wenn ja, gebe ja ein. Ansonsten nein.");
+    string eingabe = Console.ReadLine();
+    if(eingabe == "nein")
+    {
+        fertigMitParken= true;
+        Console.Clear();
+    }
+    else if(eingabe == "ja")
+    {
+        if (parkPlatz >= 2)
+        {
+            Console.Clear();
+            Console.WriteLine("Leider ist der Parkplatz voll.");
+            fertigMitParken = true;
+            continue;
+        }
+        Console.WriteLine("Welches Auto Model Parken Sie?");
+        string auto = Console.ReadLine();
+        parkplaetze[parkPlatz] = auto;
+        Console.WriteLine($"Dein Auto {auto} ist in parkplatz {parkPlatz} geparkt worden");
+        parkPlatz++;
+    }
+    else
+    {
+        Console.WriteLine("Leider nicht verstanden, bitte nur ja oder nein eingeben.");
+        continue;
+    }
+}
+
+
+Console.WriteLine("Aktuell geparkten Autos");
+for (int i = 0; i < parkplaetze.Length; i++)
+{
+    Console.WriteLine(parkplaetze[i]);
+}
